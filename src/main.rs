@@ -37,13 +37,6 @@ fn main() {
 
     let radar = prompt_input("Enter radar: ");
 
-    let month_end = prompt_int("Enter ending month: ");
-    let month_end = format!("{:02}", month_end);
-    let day_end = prompt_int("Enter ending day: ");
-    let day_end = format!("{:02}", day_end);
-    let year_end = prompt_int("Enter ending year: ");
-
     let url = "https://www.ncdc.noaa.gov/nexradinv/bdp-download.jsp?id=".to_owned() + &*radar.to_uppercase() + "&yyyy=" + &*year_start.to_string() + "&mm=" + &*month_start.to_string() + "&dd=" + &*day_start.to_string() + "&product=AAL2";
     println!("Url: {:?}", url);
-    println!("Month: {}, {}, {}", month_end, day_end, year_end);
 }
