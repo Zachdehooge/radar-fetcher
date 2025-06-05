@@ -1,0 +1,49 @@
+use std::io;
+use std::io::Write;
+
+fn prompt_int(prompt: &str) -> i32 {
+    loop {
+        print!("{}", prompt);
+        io::stdout().flush().expect("Failed to flush stdout");
+
+        let mut input = String::new();
+        io::stdin().read_line(&mut input).expect("Failed to read input");
+
+        match input.trim().parse::<i32>() {
+            Ok(num) => return num,
+            Err(_) => {
+                println!("Please enter a valid integer.");
+            }
+        }
+    }
+}
+fn prompt_input(prompt: &str) -> String {
+    print!("{}", prompt);
+    io::stdout().flush().expect("Failed to flush stdout");
+
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input");
+    input.trim().to_string()
+}
+
+fn main() {
+    let month_start = prompt_int("Enter starting month: ");
+    let month_start = format!("{:02}", month_start);
+    let day_start = prompt_int("Enter starting day: ");
+    let day_start = format!("{:02}", day_start);
+    let year_start = prompt_int("Enter starting year: ");
+
+    let radar = prompt_input("Enter radar: ");
+
+    let month_end = prompt_int("Enter ending month: ");
+    let month_end = format!("{:02}", month_end);
+    let day_end = prompt_int("Enter ending day: ");
+    let day_end = format!("{:02}", day_end);
+    let year_end = prompt_int("Enter ending year: ");
+
+    let url = "https://www.ncdc.noaa.gov/nexradinv/bdp-download.jsp?id=".to_owned() + &*radar + "&yyyy=" + &*year_start.to_string() + "&mm=" + &*month_start.to_string() + "&dd=" + &*day_start.to_string() + "&product=AAL2";
+    println!("Url: {:?}", url);
+    println!("Month: {}, {}, {}", month_end, day_end, year_end);
+}
