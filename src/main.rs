@@ -29,9 +29,9 @@ fn prompt_input(prompt: &str) -> String {
 }
 
 fn main() {
-    let month_start = prompt_int("Enter starting month: ");
+    let month_start = prompt_int("Enter month(01): ");
     let month_start = format!("{:02}", month_start);
-    let day_start = prompt_int("Enter starting day: ");
+    let day_start = prompt_int("Enter day(01): ");
     let day_start = format!("{:02}", day_start);
     let year_start = prompt_int("Enter starting year: ");
 
