@@ -10,14 +10,6 @@ use tokio::fs::File;
 use tokio::io::AsyncWriteExt;
 use url::Url;
 
-// Add these dependencies to your Cargo.toml:
-// [dependencies]
-// reqwest = { version = "0.12", features = ["stream"] }
-// tokio = { version = "1.0", features = ["full"] }
-// scraper = "0.20"
-// url = "2.5"
-// futures = "0.3"
-
 #[derive(Debug)]
 struct DownloadProgress {
     total: usize,
